@@ -1,0 +1,167 @@
+.sound-path {
+  --forest: #164b35;
+  --forest-deep: #0d3327;
+  --leaf: #2a7650;
+  --sand: #f6d895;
+  --amber: #eaa63b;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: max(.5rem, env(safe-area-inset-top)) max(1rem, env(safe-area-inset-right)) max(.65rem, env(safe-area-inset-bottom)) max(1rem, env(safe-area-inset-left));
+  overflow: hidden;
+  color: #fff8df;
+  background: radial-gradient(ellipse at 50% 18%, #38805c 0, transparent 42%), linear-gradient(160deg, #246443, var(--forest-deep) 72%);
+  isolation: isolate;
+}
+
+.sound-path::before,
+.sound-path::after {
+  position: absolute;
+  z-index: -1;
+  width: 28rem;
+  height: 28rem;
+  border: 1px solid rgba(213, 241, 175, 0.09);
+  border-radius: 50%;
+  content: '';
+  pointer-events: none;
+}
+
+.sound-path::before { top: -18rem; left: -12rem; box-shadow: 0 0 0 2rem rgba(213, 241, 175, 0.025), 0 0 0 5rem rgba(213, 241, 175, 0.02); }
+.sound-path::after { right: -20rem; bottom: -18rem; box-shadow: 0 0 0 2rem rgba(213, 241, 175, 0.025), 0 0 0 5rem rgba(213, 241, 175, 0.02); }
+
+.sound-path__header { display: grid; grid-template-columns: minmax(0,1fr) auto minmax(0,1fr); align-items: center; gap: .6rem; width: min(100%, 1200px); min-height: 3.4rem; margin: 0 auto; background: transparent; }
+.sound-path__brand { justify-self: start; color: #fff0c5; font: 800 clamp(1rem, 2.3vw, 1.35rem)/1 'Rubik', sans-serif; letter-spacing: .01em; white-space: nowrap; }
+.sound-path__heading { text-align: center; }
+.sound-path__heading h1 { margin: 0; color: #fff0c5; font-family: 'Rubik', sans-serif; font-size: clamp(1.05rem, 3vw, 1.7rem); line-height: 1.1; }
+.sound-path__eyebrow { margin: 0 0 0.15rem; color: #b9d49c; font: 800 0.62rem/1 'Rubik', sans-serif; letter-spacing: 0.16em; }
+.sound-path__header-actions { display: flex; justify-self: end; align-items: center; gap: clamp(.25rem, 1vw, .55rem); }
+.sound-path__icon-button, .sound-path__restart-top { display: grid; place-items: center; flex: 0 0 auto; width: 2.75rem; height: 2.75rem; border: 1px solid rgba(255,255,255,.22); border-radius: 50%; color: #fff2cc; background: rgba(6,37,27,.45); font-size: 1.3rem; cursor: pointer; touch-action: manipulation; }
+.sound-path__restart-top { font-size: 1.6rem; }
+.sound-path button:focus-visible { outline: 3px solid #ffe38a; outline-offset: 3px; }
+
+.sound-path__intro { display: flex; align-items: center; justify-content: center; gap: 0.65rem; width: min(100%, 880px); min-height: 3.3rem; margin: 0.45rem auto 0.35rem; padding: 0.35rem 0.8rem; border: 1px solid rgba(242, 221, 164, 0.25); border-radius: 1rem; background: rgba(8, 40, 29, 0.46); text-align: center; }
+.sound-path__intro p { margin: 0; font-size: clamp(0.8rem, 2vw, 1rem); }
+.sound-path__intro strong { color: #ffe39a; }
+.sound-path__sound { display: grid; flex: 0 0 auto; width: 2.4rem; height: 2.4rem; place-items: center; border: 2px solid rgba(255,255,255,.78); border-radius: 50%; color: #153e2b; background: var(--sound-color, #f7d67d); font: 900 1.1rem 'Rubik', sans-serif; }
+
+.sound-path__scene { position: relative; flex: 1 1 auto; width: min(100%, 1100px); min-height: 250px; max-height: 62vh; margin: 0 auto; overflow: hidden; border: 1px solid rgba(229, 238, 174, 0.25); border-radius: 1.6rem; background: radial-gradient(ellipse at 50% 50%, rgba(132, 177, 100, 0.74), transparent 68%), linear-gradient(150deg, #4d9668 0%, #2a704d 55%, #1c5b41 100%); box-shadow: 0 18px 50px rgba(0,0,0,.26), inset 0 0 60px rgba(12,49,35,.22); }
+.sound-path__scene::before { position: absolute; inset: 0; z-index: 0; background-image: radial-gradient(rgba(241, 230, 166, .18) 1px, transparent 1.5px); background-size: 22px 22px; opacity: .38; content: ''; pointer-events: none; }
+.sound-path__decor { position: absolute; z-index: 1; filter: drop-shadow(0 7px 7px rgba(12, 43, 29, .36)); user-select: none; pointer-events: none; }
+.sound-path__decor--sun { top: 4%; right: 8%; font-size: clamp(1.6rem, 5vw, 3rem); }
+.sound-path__decor--tree-left { top: 7%; left: 6%; font-size: clamp(2rem, 7vw, 4rem); }
+.sound-path__decor--tree-right { right: 5%; bottom: 3%; font-size: clamp(2rem, 7vw, 4rem); }
+.sound-path__decor--flower-one { bottom: 7%; left: 16%; font-size: clamp(1.2rem, 4vw, 2rem); }
+.sound-path__decor--flower-two { top: 14%; right: 26%; font-size: clamp(1rem, 3vw, 1.6rem); }
+.sound-path__svg { position: absolute; z-index: 2; inset: 0; width: 100%; height: 100%; overflow: visible; touch-action: none; user-select: none; }
+.sound-path__trail-shadow, .sound-path__trail, .sound-path__trail-center, .sound-path__trail-progress { fill: none; stroke-linecap: round; stroke-linejoin: round; pointer-events: none; }
+.sound-path__trail-shadow { stroke: rgba(27, 55, 37, .62); stroke-width: 108; }
+.sound-path__trail { stroke: #714724; stroke-width: 94; }
+.sound-path__trail-center { stroke: #eac778; stroke-width: 76; }
+.sound-path__trail-progress { stroke: #fff1b5; stroke-width: 8; stroke-dasharray: 0 1; filter: drop-shadow(0 0 5px #fff0a6); transition: stroke-dasharray .12s linear; }
+.sound-path__bump circle { fill: #b66a32; stroke: #fff2c0; stroke-width: 7; filter: drop-shadow(0 3px 3px rgba(53,35,17,.4)); }
+.sound-path__bump text { fill: #fff4d6; font: 900 25px 'Rubik', sans-serif; }
+.sound-path__bump.is-active circle { fill: #f5b942; stroke: white; stroke-width: 9; filter: drop-shadow(0 0 12px #ffe681); }
+.sound-path__bump.is-cleared circle { fill: #4a9d59; stroke: #e9ffd3; }
+.sound-path__bump.is-cleared text { font-size: 34px; }
+.sound-path__start circle { fill: #f4d995; stroke: #fff4d1; stroke-width: 6; filter: drop-shadow(0 4px 6px rgba(47,31,14,.35)); }
+.sound-path__start text { font-size: 40px; }
+.sound-path__start .sound-path__caption, .sound-path__finish .sound-path__caption { fill: #fff8dd; stroke: #265238; stroke-width: 5px; paint-order: stroke; font: 900 15px 'Rubik', sans-serif; letter-spacing: 1px; }
+.sound-path__finish circle { fill: #f4d995; stroke: #fff4d1; stroke-width: 6; filter: drop-shadow(0 4px 6px rgba(47,31,14,.35)); }
+.sound-path__finish-pole { fill: none; stroke: #714724; stroke-width: 5; stroke-linecap: round; }
+.sound-path__finish-checker { fill: url(#sound-path-checker); stroke: #49351f; stroke-width: 1.5; }
+.sound-path__player-emoji { font-size: 34px; dominant-baseline: central; }
+.sound-path__meter { position: absolute; right: 1rem; bottom: 0.2rem; left: 1rem; z-index: 3; height: 0.55rem; overflow: hidden; border: 1px solid rgba(255,255,255,.5); border-radius: 9rem; background: rgba(9,42,30,.54); pointer-events: none; }
+.sound-path__meter span { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, #ffd66e, #fff4ad); transition: width .14s linear; }
+
+.sound-path__controls { display: flex; flex: 0 0 auto; flex-direction: column; align-items: center; width: min(100%, 800px); margin: 0.55rem auto 0; text-align: center; }
+.sound-path__status { min-height: 1.5rem; color: #f7edce; font-size: clamp(.78rem, 2vw, .95rem); font-weight: 700; }
+.sound-path__status.is-listening { color: #c9f3a8; }
+.sound-path__error { margin: .15rem 0; color: #ffe5a9; font-size: .8rem; }
+.sound-path__notice { margin: .1rem 0; color: #d6e4c2; font-size: .74rem; }
+.sound-path__mic { display: flex; align-items: center; justify-content: center; gap: .7rem; width: min(100%, 360px); min-height: 3.8rem; margin-top: .25rem; border: 3px solid #ffe5a0; border-radius: 1.25rem; color: #38260d; background: linear-gradient(180deg, #ffd873, #eaa333); box-shadow: 0 5px 0 #986221, 0 9px 20px rgba(0,0,0,.25); font: 900 .95rem 'Rubik', sans-serif; letter-spacing: .035em; cursor: pointer; touch-action: none; user-select: none; }
+.sound-path__mic span:first-child { font-size: 1.65rem; }
+.sound-path__mic.is-listening { transform: translateY(3px); border-color: #d7f7a9; color: #f5ffe8; background: linear-gradient(180deg, #52a966, #277345); box-shadow: 0 2px 0 #164d32, 0 0 0 5px rgba(156, 239, 145, .16); }
+.sound-path__mic.is-verified:not(.is-listening) { border-color: #d8f7aa; }
+.sound-path__mic:disabled { opacity: .7; cursor: default; }
+.sound-path__microcopy { margin: .35rem 0 0; color: #c3d7bb; font-size: .68rem; }
+
+.sound-path__modal { position: fixed; z-index: 30; inset: 0; display: grid; place-items: center; padding: max(1rem, env(safe-area-inset-top)) max(1rem, env(safe-area-inset-right)) max(1rem, env(safe-area-inset-bottom)) max(1rem, env(safe-area-inset-left)); background: rgba(4, 27, 20, .72); backdrop-filter: blur(5px); }
+.sound-path__modal-card { position: relative; width: min(100%, 390px); padding: 1.5rem; border: 2px solid #ffd66e; border-radius: 1.35rem; color: #fff4d5; background: linear-gradient(160deg, #286344, #103c2b); box-shadow: 0 20px 60px rgba(0,0,0,.4); text-align: center; }
+.sound-path__modal-card h2 { margin: 0 2rem 1rem; color: #ffe39a; font: 800 1.3rem/1.25 'Rubik', sans-serif; }
+.sound-path__modal-card p { margin: .65rem 0 0; color: #d6e4c2; font-size: .84rem; }
+.sound-path__modal-close { position: absolute; top: .45rem; right: .5rem; width: 2.7rem; height: 2.7rem; border: 0; border-radius: 50%; color: #fff4d5; background: rgba(255,255,255,.1); font-size: 1.6rem; cursor: pointer; }
+.sound-path__setting-toggle { display: flex; justify-content: space-between; align-items: center; gap: .75rem; width: 100%; min-height: 3.2rem; padding: .65rem .8rem; border: 1px solid rgba(255,255,255,.2); border-radius: .85rem; color: #fff4d5; background: rgba(255,255,255,.08); font: 700 .9rem 'Rubik', sans-serif; text-align: left; cursor: pointer; }
+.sound-path__modal-actions { display: flex; gap: .65rem; margin-top: 1.25rem; }
+.sound-path__modal-actions button { flex: 1; min-height: 3rem; border: 2px solid #ffebad; border-radius: .85rem; font: 800 .95rem 'Rubik', sans-serif; cursor: pointer; }
+.sound-path__stay-button { color: #f7f0dc; background: rgba(255,255,255,.08); }
+.sound-path__exit-button { color: #3a2a0f; background: #ffda75; }
+.sound-path__win { position: fixed; z-index: 20; inset: 0; display: grid; place-items: center; padding: 1rem; background: rgba(4, 27, 20, .78); backdrop-filter: blur(6px); }
+.sound-path__win-card { display: flex; flex-direction: column; align-items: center; width: min(100%, 390px); padding: 1.6rem; border: 3px solid #ffd66e; border-radius: 1.6rem; color: #fff4d5; background: linear-gradient(160deg, #286344, #103c2b); box-shadow: 0 20px 60px rgba(0,0,0,.4); text-align: center; }
+.sound-path__win-card > span { font-size: 3.5rem; }
+.sound-path__win-card h2 { margin: .25rem 0; color: #ffe39a; font: 900 1.6rem 'Rubik', sans-serif; }
+.sound-path__win-card p { margin: 0 0 1rem; }
+.sound-path__win-card button { width: 100%; min-height: 3rem; margin-top: .5rem; border: 2px solid #ffebad; border-radius: .9rem; color: #3a2a0f; background: #ffda75; font: 800 .92rem 'Rubik', sans-serif; cursor: pointer; }
+.sound-path__win-card .sound-path__win-secondary { color: #f7f0dc; background: rgba(255,255,255,.08); }
+
+@media (min-width: 800px) and (min-height: 700px) {
+  .sound-path { gap: .2rem; padding-right: 2rem; padding-left: 2rem; }
+  .sound-path__scene { max-height: 60vh; }
+}
+
+@media (max-width: 560px) {
+  .sound-path { min-height: 100vh; min-height: 100dvh; padding-right: max(.65rem, env(safe-area-inset-right)); padding-left: max(.65rem, env(safe-area-inset-left)); }
+  .sound-path__header { grid-template-columns: auto minmax(0, 1fr) auto; gap: .25rem; }
+  .sound-path__brand { font-size: .82rem; }
+  .sound-path__heading { min-width: 0; }
+  .sound-path__heading h1 { font-size: clamp(.9rem, 4vw, 1.15rem); }
+  .sound-path__eyebrow { display: none; }
+  .sound-path__header-actions { gap: .15rem; }
+  .sound-path__icon-button, .sound-path__restart-top { width: 2.35rem; height: 2.35rem; font-size: 1.1rem; }
+  .sound-path__restart-top { font-size: 1.35rem; }
+  .sound-path__scene { min-height: clamp(220px, 42vh, 390px); border-radius: 1.1rem; }
+  .sound-path__trail-shadow { stroke-width: 116; }
+  .sound-path__trail { stroke-width: 103; }
+  .sound-path__trail-center { stroke-width: 84; }
+  .sound-path__controls { margin-top: .35rem; }
+  .sound-path__mic { min-height: 3.5rem; }
+}
+
+@media (max-width: 380px) {
+  .sound-path__brand { font-size: .72rem; }
+  .sound-path__icon-button, .sound-path__restart-top { width: 2.1rem; height: 2.1rem; }
+}
+
+@media (max-height: 680px) {
+  .sound-path { min-height: 100vh; min-height: 100dvh; }
+  .sound-path__header { min-height: 2.8rem; }
+  .sound-path__intro { min-height: 2.5rem; margin-top: .2rem; }
+  .sound-path__scene { min-height: 180px; max-height: 46vh; }
+  .sound-path__controls { margin-top: .25rem; }
+  .sound-path__mic { min-height: 3rem; }
+  .sound-path__microcopy { margin-top: .2rem; }
+}
+
+@media (orientation: landscape) and (max-height: 520px) {
+  .sound-path { padding-top: max(.25rem, env(safe-area-inset-top)); }
+  .sound-path__header { min-height: 2.45rem; }
+  .sound-path__icon-button, .sound-path__restart-top { width: 2.2rem; height: 2.2rem; }
+  .sound-path__intro { min-height: 2.15rem; margin-top: .1rem; }
+  .sound-path__scene { min-height: 145px; max-height: 39vh; }
+  .sound-path__controls { margin-top: .1rem; }
+  .sound-path__status { min-height: 1.2rem; font-size: .75rem; }
+  .sound-path__mic { min-height: 2.55rem; }
+  .sound-path__accuracy, .sound-path__microcopy { display: none; }
+}
+
+.sound-path__player.is-jumping .sound-path__player-emoji { animation: sound-path-jump 420ms ease-out; }
+@keyframes sound-path-jump {
+  45% { transform: translateY(-28px) scale(1.12); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sound-path *, .sound-path *::before, .sound-path *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+}
